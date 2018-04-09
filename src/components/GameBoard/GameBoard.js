@@ -1,10 +1,13 @@
 import React from 'react';
 import Card from "../Card";
+import "./Gameboard.css"
+import data from "./data"
+
 
 const GameBoard = () => (
-    <div>
+    <div className="gameboard">
         {
-            cards.map(card => <Card a={card.a} b={card.b} c={card.c}/>)
+            data.map(card => <Card image={card.image} name={card.name}/>)
         }
     </div>
 
