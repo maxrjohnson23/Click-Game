@@ -8,7 +8,8 @@ const GameBoard = () => (
     <div className="container">
         <div className="gameboard">
             {
-                data.map(card => <Card image={card.image} name={card.name}/>)
+                data.map(card => <Card key={card.id} image={card.image}
+                                       name={card.name}/>)
             }
         </div>
     </div>
