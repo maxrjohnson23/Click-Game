@@ -5,10 +5,12 @@ import data from "./data"
 
 
 const GameBoard = () => (
-    <div className="gameboard">
-        {
-            data.map(card => <Card image={card.image} name={card.name}/>)
-        }
+    <div className="container">
+        <div className="gameboard">
+            {
+                data.map(card => <Card image={card.image} name={card.name}/>)
+            }
+        </div>
     </div>
 
 )
