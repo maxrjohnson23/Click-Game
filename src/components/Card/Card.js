@@ -7,11 +7,12 @@ class Card extends Component {
     };
 
     handleClick = () => {
-        console.log('Before: ' + this.state.clicked);
+        // Call parent component's shuffle method
+        this.props.shuffle();
 
         this.setState({
             clicked: true
-        }, () => console.log('Before: ' + this.state.clicked));
+        });
     };
 
     render() {

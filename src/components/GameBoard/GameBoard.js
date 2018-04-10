@@ -8,15 +8,16 @@ class GameBoard extends Component {
         gameTiles: data
     };
 
-    onClickShuffleTiles = () => {
-        // Shuffle array
-        let shuffledArray = this.state.gameTiles;
+    shuffleTiles = () => {
+        // Shuffle copied array
+        let shuffledArray = [...this.state.gameTiles];
 
-        console.log('Shuffling');
         for (let i = shuffledArray.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
         }
+
+        // Update state with shuffled array
         this.setState({
             gameTiles: shuffledArray
         });
@@ -26,11 +27,12 @@ class GameBoard extends Component {
     render() {
         return (
             <div className="container">
-                <div className="gameboard" onClick={this.onClickShuffleTiles}>
+                <div className="gameboard">
                     {
                         this.state.gameTiles.map(card => <Card key={card.id}
                                                                image={card.image}
-                                                               name={card.name}/>)
+                                                               name={card.name}
+                                                               shuffle={this.shuffleTiles}/>)
                     }
                 </div>
             </div>
