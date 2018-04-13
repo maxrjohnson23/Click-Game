@@ -12,24 +12,22 @@ class App extends Component {
     showLoss: false,
     showWin: false,
     gameTiles: data.map(d => {
-      return {...d, clicked: false}
+      d.clicked = false;
+      return d;
     }),
     displayBanner: false
   };
 
-  shuffleTiles() {
+  shuffledTiles(input) {
     // Shuffle copied array
-    let shuffledArray = [...this.state.gameTiles];
+    let shuffledArray = [...input];
 
     for (let i = shuffledArray.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
     }
-
-    // Update state with shuffled array
-    this.setState({
-      gameTiles: shuffledArray
-    });
+    console.log("Shuffled:"  +shuffledArray);
+    return shuffledArray;
   };
 
   handleTileClick = (tileId) => {
@@ -42,22 +40,25 @@ class App extends Component {
     let currentTile = copyTiles.find(tile => tile.id === tileId);
     // Update win/loss and scores
     if(currentTile.clicked) {
+      console.log('Resetting');
       this.endGameAndReset();
     } else {
       currentTile.clicked = true;
-      this.setCurrentScore(this.state.currentScore + 1);
+      this.setState({
+        currentScore: this.state.currentScore + 1,
+        gameTiles: this.shuffledTiles(copyTiles)
+      });
     }
-
-    this.setState({
-      gameTiles: copyTiles
-    });
-    // Show win/loss if necessary
   };
 
   endGameAndReset() {
     this.updateHighScore();
     this.setCurrentScore(0);
-    const resetData = this.state.gameTiles.map(t => t.clicked = false);
+    const resetData = this.state.gameTiles.map(t =>  {
+      t.clicked = false;
+      return t;
+    });
+    debugger;
     this.setState({
       gameTiles: resetData
     })
