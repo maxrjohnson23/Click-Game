@@ -9,8 +9,6 @@ class App extends Component {
   state = {
     currentScore: 0,
     highScore: 0,
-    showLoss: false,
-    showWin: false,
     gameTiles: data.map(tile => {
       tile.previouslyClicked = false;
       return tile;
@@ -37,7 +35,7 @@ class App extends Component {
     if(clickedTile.previouslyClicked) {
       this.endGameAndReset();
     } else {
-      clickedTile.clicked = true;
+      clickedTile.previouslyClicked = true;
       this.setState({
         currentScore: this.state.currentScore + 1,
         gameTiles: this.shuffleTiles(gameTiles)
@@ -58,7 +56,6 @@ class App extends Component {
   }
 
   updateHighScore = () => {
-    // Increment  high score and update state
     if(this.state.currentScore > this.state.highScore)
     this.setState({
       highScore: this.state.currentScore

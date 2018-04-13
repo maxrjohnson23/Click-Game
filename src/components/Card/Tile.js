@@ -1,7 +1,7 @@
 import React from "react";
-import "./Card.css";
+import "./Tile.css";
 
-const Card = (props) => (
+const Tile = (props) => (
     <div className="card">
         <img src={props.image} onClick={props.handleClick}
              alt={props.name}/>
@@ -9,4 +9,4 @@ const Card = (props) => (
 );
 
 
-export default Card;
+export default Tile;
