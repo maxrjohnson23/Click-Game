@@ -11,64 +11,50 @@ class App extends Component {
     highScore: 0,
     showLoss: false,
     showWin: false,
-    gameTiles: data.map(d => {
-      d.clicked = false;
-      return d;
+    gameTiles: data.map(tile => {
+      tile.previouslyClicked = false;
+      return tile;
     }),
-    displayBanner: false
   };
 
-  shuffledTiles(input) {
-    // Shuffle copied array
-    let shuffledArray = [...input];
+  shuffleTiles(tiles) {
+    // Shuffle array in place
+    let shuffledArray = tiles;
 
     for (let i = shuffledArray.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
     }
-    console.log("Shuffled:"  +shuffledArray);
     return shuffledArray;
   };
 
   handleTileClick = (tileId) => {
-    console.log(tileId);
-    console.log(this.state.gameTiles);
+    const gameTiles = [...this.state.gameTiles];
 
-    const copyTiles = [...this.state.gameTiles];
+    let clickedTile = gameTiles.find(tile => tile.id === tileId);
 
-    // Check event to see if it was already clicked
-    let currentTile = copyTiles.find(tile => tile.id === tileId);
-    // Update win/loss and scores
-    if(currentTile.clicked) {
-      console.log('Resetting');
+    // Determine outcome
+    if(clickedTile.previouslyClicked) {
       this.endGameAndReset();
     } else {
-      currentTile.clicked = true;
+      clickedTile.clicked = true;
       this.setState({
         currentScore: this.state.currentScore + 1,
-        gameTiles: this.shuffledTiles(copyTiles)
+        gameTiles: this.shuffleTiles(gameTiles)
       });
     }
   };
 
   endGameAndReset() {
     this.updateHighScore();
-    this.setCurrentScore(0);
     const resetData = this.state.gameTiles.map(t =>  {
-      t.clicked = false;
+      t.previouslyClicked = false;
       return t;
     });
-    debugger;
     this.setState({
+      currentScore: 0,
       gameTiles: resetData
     })
-  }
-
-  setCurrentScore = (newScore) => {
-    // Increment score and update state
-    this.setState({
-      currentScore: newScore
-    });
   }
 
   updateHighScore = () => {
