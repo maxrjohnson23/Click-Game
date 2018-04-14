@@ -2,61 +2,61 @@
   {
     "id": 1,
     "name": "React",
-    "image": "/images/react.png"
+    "image": "./images/react.png"
   },
   {
     "id": 2,
     "name": "Angular",
-    "image": "/images/angular.png"
+    "image": "./images/angular.png"
   },
   {
     "id": 3,
     "name": "HTML5",
-    "image": "/images/html5.png"
+    "image": "./images/html5.png"
   },
   {
     "id": 4,
     "name": "CSS3",
-    "image": "/images/css3.png"
+    "image": "./images/css3.png"
   },
   {
     "id": 5,
     "name": "Node",
-    "image": "/images/node.png"
+    "image": "./images/node.png"
   },
   {
     "id": 6,
     "name": "Express",
-    "image": "/images/express.png"
+    "image": "./images/express.png"
   },
   {
     "id": 7,
     "name": "MongoDB",
-    "image": "/images/mongo.png"
+    "image": "./images/mongo.png"
   },
   {
     "id": 8,
     "name": "Javascript",
-    "image": "/images/javascript.png"
+    "image": "./images/javascript.png"
   },
   {
     "id": 9,
     "name": "Bootstrap",
-    "image": "/images/bootstrap.png"
+    "image": "./images/bootstrap.png"
   },
   {
     "id": 10,
     "name": "VueJS",
-    "image": "/images/vue.png"
+    "image": "./images/vue.png"
   },
   {
     "id": 11,
     "name": "NPM",
-    "image": "/images/npm.png"
+    "image": "./images/npm.png"
   },
   {
     "id": 12,
     "name": "Webpack",
-    "image": "/images/webpack.png"
+    "image": "./images/webpack.png"
   }
 ]
