@@ -3,7 +3,7 @@ import "./Tile.css";
 
 const Tile = (props) => (
     <div className="card">
-        <img src={props.image} onClick={props.handleClick}
+        <img src={`./images/${props.image}`} onClick={props.handleClick}
              alt={props.name}/>
     </div>
 );
