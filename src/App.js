@@ -3,6 +3,8 @@ import './App.css';
 import GameBoard from './components/GameBoard';
 import Navbar from './components/Navbar';
 import data from "./data";
+import 'font-awesome/css/font-awesome.min.css';
+
 
 class App extends Component {
 

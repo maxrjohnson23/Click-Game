@@ -2,8 +2,11 @@ import React from 'react';
 
 const Navbar = (props) => (
     <nav>
-        <h1>Current score: {props.currentScore}</h1>
-        <h1>High score: {props.highScore}</h1>
+        <ul>
+          <li>Click Game</li>
+          <li>Current score: {props.currentScore}</li>
+          <li><i className="fa fa-trophy" /> High score: {props.highScore}</li>
+        </ul>
     </nav>
 );
 
