@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import GameBoard from './components/GameBoard';
-import Navbar from './components/Navbar';
+import ScoreBoard from './components/Scoreboard';
 import data from "./data";
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -17,7 +17,7 @@ class App extends Component {
     }),
   };
 
-  shuffleTiles(tiles) {
+  shuffleTiles = (tiles) => {
     // Shuffle array in place
     let shuffledArray = tiles;
 
@@ -34,7 +34,7 @@ class App extends Component {
     let clickedTile = gameTiles.find(tile => tile.id === tileId);
 
     // Determine outcome
-    if(clickedTile.previouslyClicked) {
+    if (clickedTile.previouslyClicked) {
       this.endGameAndReset();
     } else {
       clickedTile.previouslyClicked = true;
@@ -47,7 +47,7 @@ class App extends Component {
 
   endGameAndReset() {
     this.updateHighScore();
-    const resetData = this.state.gameTiles.map(t =>  {
+    const resetData = this.state.gameTiles.map(t => {
       t.previouslyClicked = false;
       return t;
     });
@@ -58,22 +58,26 @@ class App extends Component {
   }
 
   updateHighScore = () => {
-    if(this.state.currentScore > this.state.highScore)
-    this.setState({
-      highScore: this.state.currentScore
-    })
+    if (this.state.currentScore > this.state.highScore)
+      this.setState({
+        highScore: this.state.currentScore
+      })
   };
 
   render() {
     return (
-      <div className="App">
-        <Navbar currentScore={this.state.currentScore}
-                highScore={this.state.highScore}/>
-        <header className="App-header">
-          <h1 className="App-title">Click Game</h1>
-        </header>
-        <GameBoard tiles={this.state.gameTiles} handleClick={this.handleTileClick}/>
-      </div>
+        <div>
+          <header className="App-header">
+            <h1>Web Technology - Click Game</h1>
+          </header>
+          <div className="main">
+            <GameBoard currentScore={this.state.currentScore}
+                       highScore={this.state.highScore}
+                       tiles={this.state.gameTiles}
+                       handleClick={this.handleTileClick}/>
+
+          </div>
+        </div>
     );
   }
 }

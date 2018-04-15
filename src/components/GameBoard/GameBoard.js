@@ -1,18 +1,21 @@
 import React from "react";
-import Card from "../Card";
+import Tile from "../Tile";
+import Scoreboard from "../Scoreboard";
+import FlipMove from 'react-flip-move';
 import "./Gameboard.css"
 
 
 const GameBoard = (props) => (
-  <div className="container">
     <div className="gameboard">
+      <Scoreboard currentScore={props.currentScore}
+                  highScore={props.highScore}/>
       {
-        props.tiles.map(card => <Card key={card.id} image={card.image}
-                               name={card.name}
-                               handleClick={() => props.handleClick(card.id)}/>)
+        props.tiles.map(tile => <Tile key={tile.name} image={tile.image}
+                                      name={tile.name}
+                                      handleClick={() => props.handleClick(tile.id)}/>)
       }
+
     </div>
-  </div>
 );
 
 
