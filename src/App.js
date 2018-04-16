@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
 import GameBoard from './components/GameBoard';
-import ScoreBoard from './components/Scoreboard';
 import data from "./data";
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -68,7 +67,7 @@ class App extends Component {
     return (
         <div>
           <header>
-            <h1>{`onClick={`}<img src="./images/react.png"/>{`}`}</h1>
+            <h1>{`onClick={`}<img src="/Click-Game/images/react.png" alt="React Logo"/>{`}`}</h1>
           </header>
           <div className="main">
             <GameBoard currentScore={this.state.currentScore}
