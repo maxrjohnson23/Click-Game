@@ -8,7 +8,8 @@ import "./Gameboard.css"
 const GameBoard = (props) => (
     <div className="gameboard">
       <Scoreboard currentScore={props.currentScore}
-                  highScore={props.highScore}/>
+                  highScore={props.highScore}
+                  animate={props.animate}/>
       <FlipMove duration={300} easing="ease">
         {
           props.tiles.map(tile => <Tile key={tile.name} image={tile.image}

@@ -14,6 +14,7 @@ class App extends Component {
       tile.previouslyClicked = false;
       return tile;
     }),
+    animate: false
   };
 
   shuffleTiles = (tiles) => {
@@ -52,8 +53,9 @@ class App extends Component {
     });
     this.setState({
       currentScore: 0,
+      animate: true,
       gameTiles: resetData
-    })
+    });
   }
 
   updateHighScore = () => {
@@ -73,7 +75,8 @@ class App extends Component {
             <GameBoard currentScore={this.state.currentScore}
                        highScore={this.state.highScore}
                        tiles={this.state.gameTiles}
-                       handleClick={this.handleTileClick}/>
+                       handleClick={this.handleTileClick}
+                       animate={this.state.animate}/>
 
           </div>
         </div>
