@@ -40,7 +40,8 @@ class App extends Component {
       clickedTile.previouslyClicked = true;
       this.setState({
         currentScore: this.state.currentScore + 1,
-        gameTiles: this.shuffleTiles(gameTiles)
+        gameTiles: this.shuffleTiles(gameTiles),
+        animate: false
       });
     }
   };
