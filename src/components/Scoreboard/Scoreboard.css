@@ -18,11 +18,11 @@
     padding: 10px;
 }
 
-#highScore {
+.highScore {
     color: #7de27d;
 }
 
-#highScore i {
+.highScore i {
     color: #e2e200;
 }
 
