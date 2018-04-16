@@ -68,7 +68,7 @@ class App extends Component {
     return (
         <div>
           <header>
-            <h1>{`onClick={`}<img src="/images/react.png"/>{`}`}</h1>
+            <h1>{`onClick={`}<img src="./images/react.png"/>{`}`}</h1>
           </header>
           <div className="main">
             <GameBoard currentScore={this.state.currentScore}
