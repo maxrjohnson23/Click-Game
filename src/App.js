@@ -67,8 +67,8 @@ class App extends Component {
   render() {
     return (
         <div>
-          <header className="App-header">
-            <h1>Web Technology - Click Game</h1>
+          <header>
+            <h1>{`onClick={`}<img src="/images/react.png"/>{`}`}</h1>
           </header>
           <div className="main">
             <GameBoard currentScore={this.state.currentScore}

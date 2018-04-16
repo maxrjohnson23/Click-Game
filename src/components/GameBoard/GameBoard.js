@@ -9,11 +9,13 @@ const GameBoard = (props) => (
     <div className="gameboard">
       <Scoreboard currentScore={props.currentScore}
                   highScore={props.highScore}/>
-      {
-        props.tiles.map(tile => <Tile key={tile.name} image={tile.image}
-                                      name={tile.name}
-                                      handleClick={() => props.handleClick(tile.id)}/>)
-      }
+      <FlipMove duration={300} easing="ease">
+        {
+          props.tiles.map(tile => <Tile key={tile.name} image={tile.image}
+                                        name={tile.name}
+                                        handleClick={() => props.handleClick(tile.id)}/>)
+        }
+      </FlipMove>
 
     </div>
 );
