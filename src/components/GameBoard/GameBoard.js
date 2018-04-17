@@ -10,14 +10,15 @@ const GameBoard = (props) => (
       <Scoreboard currentScore={props.currentScore}
                   highScore={props.highScore}
                   animate={props.animate}/>
+      {/* Package for creating transition animations */}
       <FlipMove duration={300} easing="ease">
         {
-          props.tiles.map(tile => <Tile key={tile.name} image={tile.image}
+          props.tiles.map(tile => <Tile key={tile.name}
+                                        image={tile.image}
                                         name={tile.name}
                                         handleClick={() => props.handleClick(tile.id)}/>)
         }
       </FlipMove>
-
     </div>
 );
 
