@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
-import GameBoard from '../components/GameBoard/index';
+import GameBoard from '../components/GameBoard';
 import data from "../data";
 import 'font-awesome/css/font-awesome.min.css';
 
